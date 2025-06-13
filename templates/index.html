@@ -2,13 +2,59 @@
 <html>
 <head>
     <title>Resume Scorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 500px;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Resume Scorer</h1>
-    <form action="/score" method="post">
-        <label for="resume_text">Paste your resume text:</label><br>
-        <textarea id="resume_text" name="resume_text" rows="15" cols="80"></textarea><br><br>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Resume Scorer</h1>
+        <form action="/result" method="post">
+            <textarea name="resume_text" placeholder="Paste your resume text here..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

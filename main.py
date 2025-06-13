@@ -1,15 +1,17 @@
-from fastapi import FastAPI, Request
-from pydantic import BaseModel
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
-class Resume(BaseModel):
-    resume_text: str
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/score-resume")
-def score_resume(resume: Resume):
-    text = resume.resume_text.lower()
-    
+@app.post("/score-resume", response_class=HTMLResponse)
+async def score_resume(request: Request, resume_text: str = Form(...)):
+    text = resume_text.lower()
     score = 0
     suggestions = []
 
@@ -33,7 +35,8 @@ def score_resume(resume: Resume):
     else:
         suggestions.append("Add your education details.")
 
-    return {
+    return templates.TemplateResponse("result.html", {
+        "request": request,
         "score": min(score, 100),
         "suggestions": suggestions
-    }
+    })

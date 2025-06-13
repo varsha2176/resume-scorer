@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+</head>
+<body>
+  <h1>Resume Score: {{ score }}</h1>
+  <h2>Suggestions:</h2>
+  <ul>
+    {% for s in suggestions %}
+      <li>{{ s }}</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Go Back</a>
+</body>
+</html>

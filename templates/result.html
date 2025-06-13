@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Result</title>
-</head>
+<head><title>Result</title></head>
 <body>
-  <h1>Resume Score: {{ score }}</h1>
-  <h2>Suggestions:</h2>
-  <ul>
-    {% for suggestion in suggestions %}
-      <li>{{ suggestion }}</li>
-    {% endfor %}
-  </ul>
-  <a href="/">Go Back</a>
+    <h2>Your Resume Score: {{ score }}</h2>
+    <h3>Suggestions:</h3>
+    <ul>
+        {% for suggestion in suggestions %}
+        <li>{{ suggestion }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back</a>
 </body>
 </html>

@@ -6,11 +6,11 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
+def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/score-resume", response_class=HTMLResponse)
-async def score_resume(request: Request, resume_text: str = Form(...)):
+@app.post("/score", response_class=HTMLResponse)
+def score_resume(request: Request, resume_text: str = Form(...)):
     text = resume_text.lower()
     score = 0
     suggestions = []
@@ -19,7 +19,7 @@ async def score_resume(request: Request, resume_text: str = Form(...)):
         score += 20
     else:
         suggestions.append("Mention Python if you know it.")
-
+    
     if "project" in text:
         score += 20
     else:

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head><title>Result</title></head>
+<head>
+    <title>Resume Score</title>
+</head>
 <body>
-    <h2>Your Resume Score: {{ score }}</h2>
-    <h3>Suggestions:</h3>
-    <ul>
-        {% for suggestion in suggestions %}
-        <li>{{ suggestion }}</li>
-        {% endfor %}
-    </ul>
-    <a href="/">Back</a>
+    <h1>Resume Score</h1>
+    <p>Your resume score is: <strong>{{ score }}</strong></p>
+    <a href="/">Try another</a>
 </body>
 </html>
